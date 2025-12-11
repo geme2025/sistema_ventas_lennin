@@ -15,14 +15,16 @@ chmod -R 775 /var/www/bootstrap/cache
 # Limpiar cache anterior
 php artisan config:clear
 php artisan cache:clear
+php artisan route:clear
 
 # Optimizar Laravel
 php artisan config:cache
-php artisan route:cache
+# NO cachear rutas para evitar conflictos
+# php artisan route:cache
 php artisan view:cache
 
-# Ejecutar migraciones (solo en primer despliegue)
-php artisan migrate --force
+# Ejecutar migraciones (ignorar errores si tablas ya existen)
+php artisan migrate --force || true
 
 # Iniciar PHP-FPM en background
 php-fpm -D

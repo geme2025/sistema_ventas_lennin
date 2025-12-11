@@ -19,6 +19,8 @@ class Venta extends Model
         'user_id',
         'fecha_venta',
         'subtotal',
+        'descuento',
+        'impuesto',
         'igv',
         'total',
         'metodo_pago',
@@ -29,6 +31,8 @@ class Venta extends Model
     protected $casts = [
         'fecha_venta' => 'datetime',
         'subtotal' => 'decimal:2',
+        'descuento' => 'decimal:2',
+        'impuesto' => 'decimal:2',
         'igv' => 'decimal:2',
         'total' => 'decimal:2',
     ];

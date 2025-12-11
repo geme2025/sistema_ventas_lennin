@@ -51,6 +51,20 @@
 
 ## 🚀 Inicio Rápido
 
+### Instalación Automática (Windows - Recomendado)
+
+```powershell
+# PowerShell - Ejecutar desde la carpeta del proyecto
+.\instalar_local.ps1
+```
+
+```cmd
+# CMD - Ejecutar desde la carpeta del proyecto
+instalar_local.bat
+```
+
+### Instalación Manual
+
 ```bash
 # 1. Clonar repositorio
 git clone <url-repositorio>
@@ -60,11 +74,11 @@ cd sistema_ventas_lennin
 composer install
 npm install
 
-# 3. Configurar entorno
-cp .env.example .env
+# 3. Configurar entorno para desarrollo local
+cp .env.local.example .env   # Windows: copy .env.local.example .env
 php artisan key:generate
 
-# 4. Crear base de datos
+# 4. Crear base de datos MySQL
 mysql -u root -e "CREATE DATABASE sistema_ventas_lennin"
 
 # 5. Migrar y poblar datos
@@ -78,6 +92,8 @@ php artisan serve
 ```
 
 Acceder a: http://localhost:8000
+
+> 📖 Para instrucciones detalladas, ver **[INSTALACION_LOCAL.md](INSTALACION_LOCAL.md)**
 
 ## 🔑 Credenciales de Prueba
 
@@ -104,10 +120,16 @@ Panel principal con estadísticas en tiempo real, ventas recientes y productos m
 
 ## 📚 Documentación
 
+- **[INSTALACION_LOCAL.md](INSTALACION_LOCAL.md)** - ⭐ Guía completa de instalación local (MySQL)
 - **[Inicio Rápido](#-inicio-rápido)** - Configuración local en 5 minutos
 - **[DEPLOYMENT.md](DEPLOYMENT.md)** - Guía completa de despliegue tradicional
 - **[MONGODB_SCHEMA.md](MONGODB_SCHEMA.md)** - Esquema de base de datos MongoDB
 - **[RENDER_DEPLOYMENT.md](RENDER_DEPLOYMENT.md)** - Despliegue en Render.com con dominio
+
+### Archivos de Entorno
+- `.env.local.example` - Plantilla para **desarrollo local con MySQL** ⭐
+- `.env.production.example` - Plantilla para **producción en Render** (PostgreSQL)
+- `.env.example` - Plantilla general de referencia
 
 ### Opciones de Base de Datos
 - **MySQL** (por defecto): Desarrollo local y servidores tradicionales

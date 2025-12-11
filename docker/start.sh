@@ -12,6 +12,10 @@ chown -R www-data:www-data /var/www/bootstrap/cache
 chmod -R 775 /var/www/storage
 chmod -R 775 /var/www/bootstrap/cache
 
+# Limpiar cache anterior
+php artisan config:clear
+php artisan cache:clear
+
 # Optimizar Laravel
 php artisan config:cache
 php artisan route:cache
